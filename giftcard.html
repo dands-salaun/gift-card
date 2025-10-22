@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Seu Gift Card | Evino Style</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --wine: #ffffff;            /* textos brancos para contraste */
+      --wine-dark: #fce5e8;       /* tons rosados para sutileza */
+      --gray-light: rgba(255,255,255,0.15);
+      --gray-mid: #fff;
+      --accent: #ffe0e5;          /* detalhes suaves */
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: linear-gradient(180deg, #f8f6f7 0%, #ffffff 100%);
+      color: var(--gray-mid);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 1rem;
+    }
+
+    .card {
+      background: #ff102d;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      animation: fadeIn 0.6s ease;
+      color: var(--wine);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card img {
+      width: 120px;
+      height: auto;
+      margin-bottom: 1rem;
+      /*filter: brightness(0) invert(1); /* deixa o logo branco, se for escuro */
+    }
+
+    h1 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--wine-dark);
+      font-size: 1.9rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.5px;
+    }
+
+    #code {
+      display: inline-block;
+      font-weight: 700;
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      color: #ff102d;
+      background: var(--accent);
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      margin: 0.8rem 0 1.2rem;
+      user-select: all;
+    }
+
+    #status {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      color: var(--wine-dark);
+    }
+
+    button {
+      background-color: #ffffff;
+      color: #ff102d;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.9rem 1.6rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.1s ease;
+    }
+
+    button:hover {
+      background-color: var(--wine-dark);
+      color: #ff102d;
+      transform: scale(1.03);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .copied {
+      background-color: #4CAF50 !important;
+      color: white !important;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      margin-top: 2rem;
+      color: var(--wine-dark);
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="evino_logo.jpg" alt="Logo Evino Style">
+    
+    <h1>Seu Gift Card</h1>
+    <p id="code">ABC123-XYZ</p>
+    <p id="status">Toque em <strong>Copiar</strong> ou aguarde que copiamos automaticamente.</p>
+    <button id="copyBtn">Copiar código</button>
+    <footer>Presente com carinho 🍷</footer>
+  </div>
+
+  <script>
+    const code = document.getElementById('code').textContent.trim();
+    const status = document.getElementById('status');
+    const btn = document.getElementById('copyBtn');
+
+    async function tryCopy() {
+      try {
+        await navigator.clipboard.writeText(code);
+        status.textContent = '✅ Código copiado para a área de transferência!';
+        btn.textContent = 'Copiado!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copiar código';
+          btn.classList.remove('copied');
+        }, 2000);
+      } catch (e) {
+        status.textContent = 'Toque no botão "Copiar" se o texto não foi copiado automaticamente.';
+      }
+    }
+
+    btn.addEventListener('click', tryCopy);
+    tryCopy(); // tenta copiar automaticamente
+  </script>
+</body>
+</html>
