@@ -7,27 +7,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --wine: #ffffff;            /* textos brancos para contraste */
-      --wine-dark: #fce5e8;       /* tons rosados para sutileza */
-      --gray-light: rgba(255,255,255,0.15);
-      --gray-mid: #fff;
-      --accent: #ffe0e5;          /* detalhes suaves */
+      --wine: #ffffff;
+      --wine-dark: #fce5e8;
+      --accent: #ffe0e5;
+      --pink-bg: #ff102d;
     }
 
     body {
       font-family: 'Lato', sans-serif;
       background: linear-gradient(180deg, #f8f6f7 0%, #ffffff 100%);
-      color: var(--gray-mid);
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
       padding: 1rem;
+      color: var(--wine-dark);
     }
 
     .card {
-      background: #ff102d;
+      background: var(--pink-bg);
       border-radius: 20px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.12);
       max-width: 420px;
@@ -47,61 +46,82 @@
       width: 120px;
       height: auto;
       margin-bottom: 1rem;
-      /*filter: brightness(0) invert(1); /* deixa o logo branco, se for escuro */
     }
 
     h1 {
       font-family: 'Poppins', sans-serif;
       color: var(--wine-dark);
       font-size: 1.9rem;
-      margin-bottom: 1rem;
-      letter-spacing: 0.5px;
-    }
-
-    #code {
-      display: inline-block;
-      font-weight: 700;
-      font-size: 1.6rem;
-      letter-spacing: 1px;
-      color: #ff102d;
-      background: var(--accent);
-      padding: 0.6rem 1rem;
-      border-radius: 8px;
-      margin: 0.8rem 0 1.2rem;
-      user-select: all;
-    }
-
-    #status {
-      font-size: 0.95rem;
       margin-bottom: 1.5rem;
-      color: var(--wine-dark);
     }
 
-    button {
-      background-color: #ffffff;
-      color: #ff102d;
+    .gift-info {
+      background: rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .info-block {
+      background: var(--accent);
+      border-radius: 8px;
+      padding: 0.7rem 1rem;
       font-weight: 700;
-      font-size: 1rem;
-      padding: 0.9rem 1.6rem;
+      font-size: 1.1rem;
+      color: var(--pink-bg);
+      user-select: all;
+      margin-top: 0.3rem;
+    }
+
+    .info-label {
+      font-size: 0.85rem;
+      color: var(--wine-dark);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .copy-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .copy-btn {
+      background-color: #ffffff;
+      color: var(--pink-bg);
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.6rem 1.2rem;
       border: none;
-      border-radius: 30px;
+      border-radius: 20px;
       cursor: pointer;
       transition: background 0.3s ease, transform 0.1s ease;
     }
 
-    button:hover {
+    .copy-btn:hover {
       background-color: var(--wine-dark);
-      color: #ff102d;
+      color: var(--pink-bg);
       transform: scale(1.03);
     }
 
-    button:active {
+    .copy-btn:active {
       transform: scale(0.98);
     }
 
     .copied {
       background-color: #4CAF50 !important;
       color: white !important;
+    }
+
+    #status {
+      font-size: 0.95rem;
+      margin-top: 1rem;
+      color: var(--wine-dark);
     }
 
     footer {
@@ -116,36 +136,53 @@
   <div class="card">
     <img src="evino_logo.jpg" alt="Logo Evino Style">
     
-    <h1>Seu Gift Card</h1>
-    <p id="code">ABC123-XYZ</p>
-    <p id="status">Toque em <strong>Copiar</strong> ou aguarde que copiamos automaticamente.</p>
-    <button id="copyBtn">Copiar código</button>
+    <h1>GIFT CARD DE R$ 90</h1>
+
+    <div class="gift-info">
+      <div class="copy-group">
+        <div class="info-label">Código</div>
+        <div id="code" class="info-block">ABC123-XYZ</div>
+        <button class="copy-btn" id="copyCode">Copiar código</button>
+      </div>
+
+      </div>
+      <div class="gift-info">
+      <div class="copy-group">
+        <div class="info-label">PIN</div>
+        <div id="pin" class="info-block">789456</div>
+        <button class="copy-btn" id="copyPin">Copiar PIN</button>
+      </div>
+    </div>
+
+    <p id="status">Escolha o que deseja copiar acima.</p>
+
     <footer>Presente com carinho 🍷</footer>
   </div>
 
   <script>
-    const code = document.getElementById('code').textContent.trim();
+    const code = document.getElementById('code');
+    const pin = document.getElementById('pin');
     const status = document.getElementById('status');
-    const btn = document.getElementById('copyBtn');
+    const btnCode = document.getElementById('copyCode');
+    const btnPin = document.getElementById('copyPin');
 
-    async function tryCopy() {
+    async function copyText(text, button, label) {
       try {
-        await navigator.clipboard.writeText(code);
-        status.textContent = '✅ Código copiado para a área de transferência!';
-        btn.textContent = 'Copiado!';
-        btn.classList.add('copied');
+        await navigator.clipboard.writeText(text);
+        status.textContent = `✅ ${label} copiado para a área de transferência!`;
+        button.textContent = 'Copiado!';
+        button.classList.add('copied');
         setTimeout(() => {
-          btn.textContent = 'Copiar código';
-          btn.classList.remove('copied');
+          button.textContent = `Copiar ${label.toLowerCase()}`;
+          button.classList.remove('copied');
         }, 2000);
       } catch (e) {
-        status.textContent = 'Toque no botão "Copiar" se o texto não foi copiado automaticamente.';
+        status.textContent = `❌ Não foi possível copiar o ${label.toLowerCase()}.`;
       }
     }
 
-    btn.addEventListener('click', tryCopy);
-    //tryCopy(); // tenta copiar automaticamente
+    btnCode.addEventListener('click', () => copyText(code.textContent.trim(), btnCode, 'Código'));
+    btnPin.addEventListener('click', () => copyText(pin.textContent.trim(), btnPin, 'PIN'));
   </script>
 </body>
 </html>
-
