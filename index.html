@@ -1,231 +1,379 @@
-<!doctype html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="utf-8">
-  <title>Seu Gift Card | Evino</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    /* O CSS foi mantido o mesmo, mas adicionamos um estilo para o corpo inicialmente oculto */
-    :root {
-      --wine: #ffffff;
-      --wine-dark: #fce5e8;
-      --accent: #ffe0e5;
-      --pink-bg: #ff102d;
-    }
 
-    body {
-      font-family: 'Lato', sans-serif;
-      background: linear-gradient(180deg, #f8f6f7 0%, #ffffff 100%);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      padding: 0.5rem;
-      color: var(--wine-dark);
-      **visibility: hidden; /* Inicialmente esconde o corpo */**
-    }
+  <meta charset="utf-8">
 
-    .card {
-      background: var(--pink-bg);
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
-      max-width: 340px;
-      width: 100%;
-      text-align: center;
-      padding: 1.2rem 1rem;
-      animation: fadeIn 0.6s ease;
-      color: var(--wine);
-      margin-top: -80px; /* sobe o card cerca de 40px */
-    }
+  <title>Seu Gift Card | Evino</title>
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  <meta name="viewport" content="width=device-width,initial-scale=1">
 
-    .card img {
-      width: 130px;
-      height: auto;
-      margin-bottom: 0.2rem;
-    }
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 
-    h1 {
-      font-family: 'Poppins', sans-serif;
-      color: var(--wine-dark);
-      font-size: 1.4rem;
-      margin: 0.2rem 0 0.8rem;
-      line-height: 1.2;
-    }
+  <style>
 
-    .gift-info {
-      background: rgba(255,255,255,0.15);
-      border-radius: 10px;
-      padding: 0.6rem;
-      margin-bottom: 0.6rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
+    :root {
 
-    .info-block {
-      background: var(--accent);
-      border-radius: 6px;
-      padding: 0.4rem 0.8rem;
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--pink-bg);
-      user-select: all;
-      margin-top: 0.2rem;
-      word-break: break-word;
-    }
+      --wine: #ffffff;
 
-    .info-label {
-      font-size: 0.7rem;
-      color: var(--wine-dark);
-      text-transform: uppercase;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-    }
+      --wine-dark: #fce5e8;
 
-    .copy-group {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.3rem;
-    }
+      --accent: #ffe0e5;
 
-    .copy-btn {
-      background-color: #ffffff;
-      color: var(--pink-bg);
-      font-weight: 700;
-      font-size: 0.8rem;
-      padding: 0.4rem 0.9rem;
-      border: none;
-      border-radius: 16px;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.1s ease;
-    }
+      --pink-bg: #ff102d;
 
-    .copy-btn:hover {
-      background-color: var(--wine-dark);
-      color: var(--pink-bg);
-      transform: scale(1.03);
-    }
+    }
 
-    .copy-btn:active {
-      transform: scale(0.98);
-    }
 
-    .copied {
-      background-color: #4CAF50 !important;
-      color: white !important;
-    }
 
-    #status {
-      font-size: 0.8rem;
-      margin-top: 0.5rem;
-      color: var(--wine-dark);
-    }
+    body {
 
-    footer {
-      text-align: center;
-      font-size: 0.7rem;
-      margin-top: 0.8rem;
-      color: var(--wine-dark);
-    }
-  </style>
+      font-family: 'Lato', sans-serif;
+
+      background: linear-gradient(180deg, #f8f6f7 0%, #ffffff 100%);
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      height: 100vh;
+
+      margin: 0;
+
+      padding: 0.5rem;
+
+      color: var(--wine-dark);
+
+    }
+
+
+
+    .card {
+
+      background: var(--pink-bg);
+
+      border-radius: 16px;
+
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+
+      max-width: 340px;
+
+      width: 100%;
+
+      text-align: center;
+
+      padding: 1.2rem 1rem;
+
+      animation: fadeIn 0.6s ease;
+
+      color: var(--wine);
+
+      margin-top: -80px; /* sobe o card cerca de 40px */
+
+    }
+
+
+
+    @keyframes fadeIn {
+
+      from { opacity: 0; transform: translateY(15px); }
+
+      to { opacity: 1; transform: translateY(0); }
+
+    }
+
+
+
+    .card img {
+
+      width: 130px;
+
+      height: auto;
+
+      margin-bottom: 0.2rem;
+
+    }
+
+
+
+    h1 {
+
+      font-family: 'Poppins', sans-serif;
+
+      color: var(--wine-dark);
+
+      font-size: 1.4rem;
+
+      margin: 0.2rem 0 0.8rem;
+
+      line-height: 1.2;
+
+    }
+
+
+
+    .gift-info {
+
+      background: rgba(255,255,255,0.15);
+
+      border-radius: 10px;
+
+      padding: 0.6rem;
+
+      margin-bottom: 0.6rem;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 0.6rem;
+
+    }
+
+
+
+    .info-block {
+
+      background: var(--accent);
+
+      border-radius: 6px;
+
+      padding: 0.4rem 0.8rem;
+
+      font-weight: 700;
+
+      font-size: 0.95rem;
+
+      color: var(--pink-bg);
+
+      user-select: all;
+
+      margin-top: 0.2rem;
+
+      word-break: break-word;
+
+    }
+
+
+
+    .info-label {
+
+      font-size: 0.7rem;
+
+      color: var(--wine-dark);
+
+      text-transform: uppercase;
+
+      font-weight: 600;
+
+      letter-spacing: 0.3px;
+
+    }
+
+
+
+    .copy-group {
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      gap: 0.3rem;
+
+    }
+
+
+
+    .copy-btn {
+
+      background-color: #ffffff;
+
+      color: var(--pink-bg);
+
+      font-weight: 700;
+
+      font-size: 0.8rem;
+
+      padding: 0.4rem 0.9rem;
+
+      border: none;
+
+      border-radius: 16px;
+
+      cursor: pointer;
+
+      transition: background 0.3s ease, transform 0.1s ease;
+
+    }
+
+
+
+    .copy-btn:hover {
+
+      background-color: var(--wine-dark);
+
+      color: var(--pink-bg);
+
+      transform: scale(1.03);
+
+    }
+
+
+
+    .copy-btn:active {
+
+      transform: scale(0.98);
+
+    }
+
+
+
+    .copied {
+
+      background-color: #4CAF50 !important;
+
+      color: white !important;
+
+    }
+
+
+
+    #status {
+
+      font-size: 0.8rem;
+
+      margin-top: 0.5rem;
+
+      color: var(--wine-dark);
+
+    }
+
+
+
+    footer {
+
+      text-align: center;
+
+      font-size: 0.7rem;
+
+      margin-top: 0.8rem;
+
+      color: var(--wine-dark);
+
+    }
+
+  </style>
+
 </head>
+
 <body>
-  <div class="card">
-    <img src="evino_logo.jpg" alt="Logo Evino Style">
-    <h1>GIFT CARD<br>R$ 90</h1>
 
-    <div class="gift-info">
-      <div class="copy-group">
-        <div class="info-label">Código</div>
-        <div id="code" class="info-block">90EPAY2-FE9F88</div>
-        <button class="copy-btn" id="copyCode">Copiar código</button>
-      </div>
-    </div>
+  <div class="card">
 
-    <div class="gift-info">
-      <div class="copy-group">
-        <div class="info-label">PIN</div>
-        <div id="pin" class="info-block">1104000020000037200</div>
-        <button class="copy-btn" id="copyPin">Copiar PIN</button>
-      </div>
-      
-    </div>
+    <img src="evino_logo.jpg" alt="Logo Evino Style">
 
-    <p id="status">Escolha o que deseja copiar acima.</p>
-    <footer>Presente com carinho 🍷</footer>
-  </div>
+    <h1>GIFT CARD<br>R$ 90</h1>
 
-  <script>
-    **// 1. Configuração da Senha e Variáveis**
-    const CORRECT_PASSWORD = 'evino123'; // ⬅️ TROQUE SUA SENHA AQUI
-    const pageBody = document.body;
 
-    **// 2. Função de Verificação de Senha**
-    function checkPassword() {
-      let password = '';
 
-      // Tenta recuperar a senha da sessão para evitar pedir a cada carregamento
-      const sessionPassword = sessionStorage.getItem('sitePassword');
-      if (sessionPassword === CORRECT_PASSWORD) {
-        password = sessionPassword;
-      } else {
-        // Se não estiver na sessão, pede a senha
-        password = prompt('Por favor, digite a senha de acesso:');
-      }
+    <div class="gift-info">
 
-      // Verifica a senha
-      if (password === CORRECT_PASSWORD) {
-        // Senha correta: armazena na sessão e exibe a página
-        sessionStorage.setItem('sitePassword', CORRECT_PASSWORD);
-        pageBody.style.visibility = 'visible';
-      } else {
-        // Senha incorreta ou cancelada: mostra mensagem de erro e recarrega
-        alert('Senha incorreta! Acesso negado.');
-        // Evita loop infinito se o usuário simplesmente cancelar o prompt
-        if (password !== null) { 
-          checkPassword(); // Pede novamente até acertar
-        } else {
-          // Redireciona para um site neutro ou permanece na página em branco
-          window.location.href = 'about:blank';
-        }
-      }
-    }
+      <div class="copy-group">
 
-    // Executa a verificação ao carregar a página
-    checkPassword();
+        <div class="info-label">Código</div>
 
-    // 3. Script de Cópia (mantido o original)
-    const code = document.getElementById('code');
-    const pin = document.getElementById('pin');
-    const status = document.getElementById('status');
-    const btnCode = document.getElementById('copyCode');
-    const btnPin = document.getElementById('copyPin');
+       <!-- <div id="code" class="info-block">90EPAY2-FE9FN7</div> -->
 
-    async function copyText(text, button, label) {
-      try {
-        await navigator.clipboard.writeText(text);
-        status.textContent = `✅ ${label} copiado para a área de transferência!`;
-        button.textContent = 'Copiado!';
-        button.classList.add('copied');
-        setTimeout(() => {
-          button.textContent = `Copiar ${label.toLowerCase()}`;
-          button.classList.remove('copied');
-        }, 2000);
-      } catch (e) {
-        status.textContent = `❌ Não foi possível copiar o ${label.toLowerCase()}.`;
-      }
-    }
+        <div id="code" class="info-block">90EPAY2-FE9F88</div>
 
-    btnCode.addEventListener('click', () => copyText(code.textContent.trim(), btnCode, 'Código'));
-    btnPin.addEventListener('click', () => copyText(pin.textContent.trim(), btnPin, 'PIN'));
-  </script>
+        <button class="copy-btn" id="copyCode">Copiar código</button>
+
+      </div>
+
+    </div>
+
+
+
+    <div class="gift-info">
+
+      <div class="copy-group">
+
+        <div class="info-label">PIN</div>
+
+        <!-- <div id="pin" class="info-block">1104000020000037249</div> -->
+
+        <div id="pin" class="info-block">1104000020000037200</div>
+
+        <button class="copy-btn" id="copyPin">Copiar PIN</button>
+
+      </div>
+
+    </div>
+
+
+
+    <p id="status">Escolha o que deseja copiar acima.</p>
+
+    <footer>Presente com carinho 🍷</footer>
+
+  </div>
+
+
+
+  <script>
+
+    const code = document.getElementById('code');
+
+    const pin = document.getElementById('pin');
+
+    const status = document.getElementById('status');
+
+    const btnCode = document.getElementById('copyCode');
+
+    const btnPin = document.getElementById('copyPin');
+
+
+
+    async function copyText(text, button, label) {
+
+      try {
+
+        await navigator.clipboard.writeText(text);
+
+        status.textContent = `✅ ${label} copiado para a área de transferência!`;
+
+        button.textContent = 'Copiado!';
+
+        button.classList.add('copied');
+
+        setTimeout(() => {
+
+          button.textContent = `Copiar ${label.toLowerCase()}`;
+
+          button.classList.remove('copied');
+
+        }, 2000);
+
+      } catch (e) {
+
+        status.textContent = `❌ Não foi possível copiar o ${label.toLowerCase()}.`;
+
+      }
+
+    }
+
+
+
+    btnCode.addEventListener('click', () => copyText(code.textContent.trim(), btnCode, 'Código'));
+
+    btnPin.addEventListener('click', () => copyText(pin.textContent.trim(), btnPin, 'PIN'));
+
+  </script>
+
 </body>
+
 </html>
